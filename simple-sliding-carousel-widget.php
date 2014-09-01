@@ -1,14 +1,14 @@
 <?php
 
 /*
-Plugin Name: Pico Slider
+Plugin Name: Simple Sliding Carousel Widget
 Plugin URI: http://www.sennza.com.au/
-Description: A slider that uses a Custom Post Type and Sequence.js for the slide transitions
+Description: Create simple sliding image carousel widgets with a customisable call to action. Great for promoting products, pages or external links.
 Author: Sennza Pty Ltd, Bronson Quick, Tarei King, Lachlan MacPherson
 Author URI: http://www.sennza.com.au/
-Version: 1.1
+Version: 0.8
 License: GPL2
-GitHub Plugin URI: https://github.com/sennza/pico-slider
+GitHub Plugin URI: https://github.com/tareiking/simple-sliding-carousel-widget
 */
 
 // Exit if this file is directly accessed
