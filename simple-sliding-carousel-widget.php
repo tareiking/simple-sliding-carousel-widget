@@ -18,29 +18,19 @@ class SZ_Simple_Sliding_Carousel_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract($args);
 
-		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		/**
-		 * Filter the content of the Text widget.
-		 *
-		 * @since 2.3.0
-		 *
-		 * @param string    $widget_text The widget content.
-		 * @param WP_Widget $instance    WP_Widget instance.
-		 */
-		$text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
-
 		echo $before_widget;
+
+		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; }
 
 		/**
 		 * Display the slider template
 		 */
 		if ( class_exists( 'SZ_Simple_Sliding_Carousel' ) ) {
-				$slider= SZ_Simple_Sliding_Carousel::get_instance();
+			$slider= SZ_Simple_Sliding_Carousel::get_instance();
 
-				$slider->do_slider( array() );
-
+			$slider->do_slider( array() );
 		}
 
 		echo $after_widget;
@@ -58,7 +48,6 @@ class SZ_Simple_Sliding_Carousel_Widget extends WP_Widget {
 ?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-
 
 <?php
 	}

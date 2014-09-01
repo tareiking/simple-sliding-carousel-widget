@@ -41,25 +41,25 @@ class SZ_Simple_Sliding_Carousel {
 	 */
 	public function register_slider() {
 		$labels = array(
-			'name'               => _x( 'Slide', 'slider' ),
-			'singular_name'      => _x( 'Slide', 'slider' ),
-			'add_new'            => _x( 'Add New', 'slider' ),
-			'add_new_item'       => _x( 'Add New Slide', 'slider' ),
-			'edit_item'          => _x( 'Edit Slide', 'slider' ),
-			'new_item'           => _x( 'New Slide', 'slider' ),
-			'view_item'          => _x( 'View Slide', 'slider' ),
-			'search_items'       => _x( 'Search Slides', 'slider' ),
-			'not_found'          => _x( 'No slides found', 'slider' ),
-			'not_found_in_trash' => _x( 'No slides found in Trash', 'slider' ),
-			'parent_item_colon'  => _x( 'Parent Slide:', 'slider' ),
-			'menu_name'          => _x( 'Slider', 'slider' ),
-			'all_items'          => _x( 'All Slides', 'slider' ),
+			'name'               => _x( 'Slide', 'simple-slider' ),
+			'singular_name'      => _x( 'Slide', 'simple-slider' ),
+			'add_new'            => _x( 'Add New', 'simple-slider' ),
+			'add_new_item'       => _x( 'Add New Slide', 'simple-slider' ),
+			'edit_item'          => _x( 'Edit Slide', 'simple-slider' ),
+			'new_item'           => _x( 'New Slide', 'simple-slider' ),
+			'view_item'          => _x( 'View Slide', 'simple-slider' ),
+			'search_items'       => _x( 'Search Slides', 'simple-slider' ),
+			'not_found'          => _x( 'No slides found', 'simple-slider' ),
+			'not_found_in_trash' => _x( 'No slides found in Trash', 'simple-slider' ),
+			'parent_item_colon'  => _x( 'Parent Slide:', 'simple-slider' ),
+			'menu_name'          => _x( 'Simple Sliders', 'simple-slider' ),
+			'all_items'          => _x( 'All Slides', 'simple-slider' ),
 		);
 
 		$cpt_defaults = array(
 			'labels'              => $labels,
 			'hierarchical'        => false,
-			'description'         => _x( 'A custom post type to easily generate slideshows', 'slider' ),
+			'description'         => _x( 'A custom post type to easily generate slideshows', 'simple-slider' ),
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
 			'public'              => false,
 			'show_ui'             => true,
@@ -83,7 +83,7 @@ class SZ_Simple_Sliding_Carousel {
 		register_post_type( 'simpleslide', $cpt_args );
 
 		$image_defaults = array(
-			'image_width'         => 970, 		// Height in Pixels: 9999 == any height
+			'image_width'         => 230, 		// Height in Pixels: 9999 == any height
 			'image_height'        => 9999, 		// Height in Pixels: 9999 == any height
 		);
 
@@ -314,8 +314,8 @@ class SZ_Simple_Sliding_Carousel {
 	public function change_slider_title( $title ) {
 		$screen = get_current_screen();
 
-		if ( 'slider' == $screen->post_type ) {
-			$title = __( 'Add Slider Title', 'slider' );
+		if ( 'simpleslide' == $screen->post_type ) {
+			$title = __( 'Add Slider Title', 'simple-slider' );
 		}
 
 		return $title;
@@ -331,7 +331,7 @@ class SZ_Simple_Sliding_Carousel {
 		global $post_type, $post_ID;
 
 		// beware of translated admin
-		if ( ! empty ( $post_type ) && 'slider' == $post_type ) {
+		if ( ! empty ( $post_type ) && 'simpleslide' == $post_type ) {
 			$image_alignment = get_post_meta( $post_ID, 'imagealignment', true );
 			$output          = str_replace( 'Set featured image', 'Select / Upload a slider image', $output );
 			$output          = str_replace( 'Remove featured image', 'Remove slider image', $output );

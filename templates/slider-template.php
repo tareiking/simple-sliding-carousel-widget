@@ -27,6 +27,10 @@ if ( $slider_items->have_posts() ): ?>
 
 				<h3><?php echo the_title(); ?></h3>
 
+				<?php if ( get_the_content() != '' ): ?>
+					<?php the_content(); ?>
+				<?php endif ?>
+
 				<?php if ( has_post_thumbnail() ): ?>
 					<div class="slick-image-wrap">
 						<?php the_post_thumbnail( 'slider-thumb', array( 'class' => 'slick-image' ) ); ?>
