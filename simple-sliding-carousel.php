@@ -76,7 +76,7 @@ class SZ_Simple_Sliding_Carousel {
 			'capability_type'     => 'post',
 		);
 
-		$cpt_args = apply_filters( 'pico_slider_cpt_args', $cpt_args = array() );
+		$cpt_args = apply_filters( 'simple_slider_cpt_args', $cpt_args = array() );
 
 		$cpt_args = wp_parse_args( $cpt_args, $cpt_defaults );
 
@@ -87,7 +87,7 @@ class SZ_Simple_Sliding_Carousel {
 			'image_height'        => 9999, 		// Height in Pixels: 9999 == any height
 		);
 
-		$image_args = apply_filters( 'pico_slider_image_args', $image_args = array() );
+		$image_args = apply_filters( 'simple_slider_image_args', $image_args = array() );
 
 		$image_args = wp_parse_args( $image_args, $image_defaults );
 
@@ -136,7 +136,7 @@ class SZ_Simple_Sliding_Carousel {
 			'video'           => true, 	// Boolean, true or false
 		);
 
-		$meta_args = apply_filters( 'pico_slider_meta_args', $meta_args = array() );
+		$meta_args = apply_filters( 'simple_slider_meta_args', $meta_args = array() );
 
 		$meta_args = wp_parse_args( $meta_args, $meta_defaults );
 
@@ -193,7 +193,7 @@ class SZ_Simple_Sliding_Carousel {
 			'video'           => true, 	// Boolean, true or false
 		);
 
-		$meta_args = apply_filters( 'pico_slider_meta_args', $meta_args = array() );
+		$meta_args = apply_filters( 'simple_slider_meta_args', $meta_args = array() );
 
 		$meta_args = wp_parse_args( $meta_args, $meta_defaults ); ?>
 
@@ -264,7 +264,7 @@ class SZ_Simple_Sliding_Carousel {
 			'video'           => true, 	// Boolean, true or false
 		);
 
-		$meta_args = apply_filters( 'pico_slider_meta_args', $meta_args = array() );
+		$meta_args = apply_filters( 'simple_slider_meta_args', $meta_args = array() );
 
 		$meta_args = wp_parse_args( $meta_args, $meta_defaults );
 

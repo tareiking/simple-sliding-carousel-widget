@@ -1,6 +1,6 @@
 <?php
 $defaults  = array(
-	'post_type'       => 'slider',
+	'post_type'       => 'simpleslide',
 	'posts_per_page'  => -1,
 	'call_to_actions' => false,
 	'has_video'       => false,
