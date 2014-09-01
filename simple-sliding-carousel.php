@@ -116,7 +116,7 @@ class SZ_Simple_Sliding_Carousel {
 	 * Enqueue our scripts
 	 */
 	public function slider_scripts() {
-		if ( is_front_page() ):
+		if ( ! is_admin() ):
 			wp_enqueue_script( 'slick-slider', plugins_url( '/assets/js/slick.min.js', __FILE__ ), array( 'jquery' ), '2.1', true );
 			wp_enqueue_script( 'slider-main', plugins_url( '/assets/js/slider-main.js', __FILE__ ), array(
 					'jquery',
