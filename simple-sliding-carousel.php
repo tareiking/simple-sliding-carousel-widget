@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Simple Sliding Carousel Widget
+Plugin Name: Simple Sliding Carousel
 Plugin URI: http://www.sennza.com.au/
 Description: Create simple sliding image carousel widgets with a customisable call to action. Great for promoting products, pages or external links.
 Author: Sennza Pty Ltd, Bronson Quick, Tarei King, Lachlan MacPherson
