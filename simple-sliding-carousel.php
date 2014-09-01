@@ -14,12 +14,12 @@ GitHub Plugin URI: https://github.com/tareiking/simple-sliding-carousel-widget
 // Exit if this file is directly accessed
 if ( !defined( 'ABSPATH' ) ) exit;
 
-class Pico_Slider {
+class SZ_Simple_Sliding_Carousel {
 	private static $instance;
 
 	static function get_instance() {
 		if ( ! self::$instance ) {
-			self::$instance = new Pico_Slider;
+			self::$instance = new SZ_Simple_Sliding_Carousel;
 		}
 
 		return self::$instance;
@@ -80,7 +80,7 @@ class Pico_Slider {
 
 		$cpt_args = wp_parse_args( $cpt_args, $cpt_defaults );
 
-		register_post_type( 'slider', $cpt_args );
+		register_post_type( 'simpleslide', $cpt_args );
 
 		$image_defaults = array(
 			'image_width'         => 970, 		// Height in Pixels: 9999 == any height
@@ -105,10 +105,10 @@ class Pico_Slider {
 		$templatefilename = 'slider-template.php';
 		if ( file_exists( TEMPLATEPATH . '/' . $templatefilename ) ) {
 			$return_template = TEMPLATEPATH . '/' . $templatefilename;
-			require_once( $return_template );
+			require( $return_template );
 		} else {
 			$return_template = $plugindir . '/templates/' . $templatefilename;
-			require_once( $return_template );
+			require( $return_template );
 		}
 	}
 
@@ -117,12 +117,12 @@ class Pico_Slider {
 	 */
 	public function slider_scripts() {
 		if ( is_front_page() ):
-			wp_enqueue_script( 'pico-flexslider', plugins_url( '/js/jquery.flexslider-min.js', __FILE__ ), array( 'jquery' ), '2.1', true );
-			wp_enqueue_script( 'slider-main', plugins_url( '/js/jquery.slider-main.js', __FILE__ ), array(
+			wp_enqueue_script( 'slick-slider', plugins_url( '/assets/js/slick.min.js', __FILE__ ), array( 'jquery' ), '2.1', true );
+			wp_enqueue_script( 'slider-main', plugins_url( '/assets/js/slider-main.js', __FILE__ ), array(
 					'jquery',
-					'pico-flexslider'
+					'slick-slider'
 				), '0.8', true );
-			wp_enqueue_style( 'pico-flexslider-styles', plugins_url( '/assets/css/flexslider.css', __FILE__ ), array(), 1.0 );
+			wp_enqueue_style( 'slick-slider-styles', plugins_url( '/assets/css/slick.css', __FILE__ ), array(), 1.0 );
 		endif;
 	}
 
@@ -144,7 +144,7 @@ class Pico_Slider {
 			add_meta_box( 'slider_video_meta_box', __( 'Video Url' ), array(
 					$this,
 					'slider_video_meta_box'
-				), 'slider', 'side', 'core'
+				), 'simpleslide', 'side', 'core'
 			);
 		};
 
@@ -152,11 +152,11 @@ class Pico_Slider {
 			add_meta_box( 'cta_meta_box', __( 'Calls To Action' ), array(
 					$this,
 					'cta_meta_box'
-				), 'slider', 'side', 'core'
+				), 'simpleslide', 'side', 'core'
 			);
 		}
-		remove_meta_box( 'postimagediv', 'slider', 'side' );
-		add_meta_box( 'postimagediv', 'Slider Image', 'post_thumbnail_meta_box', 'slider', 'side' );
+		remove_meta_box( 'postimagediv', 'simpleslide', 'side' );
+		add_meta_box( 'postimagediv', 'Slider Image', 'post_thumbnail_meta_box', 'simpleslide', 'side' );
 	}
 
 	/**
@@ -301,7 +301,7 @@ class Pico_Slider {
 	 * Flush the rewrite rules on activation and deactivation
 	 */
 	public function slider_rewrite_flush() {
-		Pico_Slider::get_instance();
+		SZ_Simple_Sliding_Carousel::get_instance();
 		flush_rewrite_rules();
 	}
 
@@ -350,4 +350,4 @@ class Pico_Slider {
 
 }
 
-Pico_Slider::get_instance();
+SZ_Simple_Sliding_Carousel::get_instance();
