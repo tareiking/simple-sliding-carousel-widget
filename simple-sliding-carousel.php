@@ -351,3 +351,5 @@ class SZ_Simple_Sliding_Carousel {
 }
 
 SZ_Simple_Sliding_Carousel::get_instance();
+
+include( plugin_dir_path( __FILE__ ) . 'simple-sliding-carousel-widget.php' );
