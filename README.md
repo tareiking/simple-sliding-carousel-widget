@@ -1,2 +1,2 @@
-PicoSlider
+Simple Sliding Carousel Widget
 ==========
