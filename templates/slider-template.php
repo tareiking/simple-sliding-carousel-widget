@@ -12,19 +12,28 @@ $args = wp_parse_args( $args, $defaults );
 $slider_items = new WP_Query( $args );
 
 if ( $slider_items->have_posts() ): ?>
+	<?php
+	$button_1_link       = get_post_meta( $slider_items->post->ID, 'button_1_link', true );
+	$button_1_title      = get_post_meta( $slider_items->post->ID, 'button_1_title', true );
+	$button_2_link       = get_post_meta( $slider_items->post->ID, 'button_2_link', true );
+	$button_2_title      = get_post_meta( $slider_items->post->ID, 'button_2_title', true ); ?>
+
+
 <div class="slick-widget-area">
 	<div class="slick-slider">
 		<?php while ( $slider_items->have_posts() ) : $slider_items->the_post(); ?>
 
-			<div class="slick-content ">
+			<div class="slick-content">
 
 				<h3><?php echo the_title(); ?></h3>
 
 				<?php if ( has_post_thumbnail() ): ?>
-					<?php the_post_thumbnail( 'slider-thumb' ); ?> <br>
+					<div class="slick-image-wrap">
+						<?php the_post_thumbnail( 'slider-thumb', array( 'class' => 'slick-image' ) ); ?>
+					</div>
 				<?php endif; ?>
 
-				<a href="#" class="button">Visit Link</a><br>
+				<a href="<?php echo $button_1_link; ?>" class="button slick-button"><?php echo $button_1_title; ?></a>
 
 			</div>
 		<?php endwhile; ?>
