@@ -12,7 +12,7 @@ class SZ_Simple_Sliding_Carousel_Widget extends WP_Widget {
 	function __construct() {
 		$widget_ops = array('classname' => 'simple_sliding_carousel-widget', 'description' => __('Simple Sliding Carousel Widget'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		parent::__construct('text', __('Simple Sliding Carousel'), $widget_ops, $control_ops);
+		parent::__construct('simpleslider', __('Simple Sliding Carousel'), $widget_ops, $control_ops);
 	}
 
 	function widget( $args, $instance ) {
