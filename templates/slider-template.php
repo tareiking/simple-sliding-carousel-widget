@@ -12,16 +12,15 @@ $args = wp_parse_args( $args, $defaults );
 $slider_items = new WP_Query( $args );
 
 if ( $slider_items->have_posts() ): ?>
-	<?php
-	$button_1_link       = get_post_meta( $slider_items->post->ID, 'button_1_link', true );
-	$button_1_title      = get_post_meta( $slider_items->post->ID, 'button_1_title', true );
-	$button_2_link       = get_post_meta( $slider_items->post->ID, 'button_2_link', true );
-	$button_2_title      = get_post_meta( $slider_items->post->ID, 'button_2_title', true ); ?>
-
-
 <div class="slick-widget-area">
 	<div class="slick-slider">
-		<?php while ( $slider_items->have_posts() ) : $slider_items->the_post(); ?>
+		<?php while ( $slider_items->have_posts() ) : $slider_items->the_post();
+
+		// Get button meta
+		$button_1_link       = get_post_meta( $slider_items->post->ID, 'button_1_link', true );
+		$button_1_title      = get_post_meta( $slider_items->post->ID, 'button_1_title', true );
+		$button_2_link       = get_post_meta( $slider_items->post->ID, 'button_2_link', true );
+		$button_2_title      = get_post_meta( $slider_items->post->ID, 'button_2_title', true ); ?>
 
 			<div class="slick-content">
 
