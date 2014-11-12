@@ -56,7 +56,9 @@ class SZ_Simple_Sliding_Carousel {
 			'all_items'          => _x( 'All Slides', 'simple-slider' ),
 		);
 
-		$labels = apply_filters( 'simple_slider_cpt_labels', $labels );
+		$cpt_labels = apply_filters( 'simple_slider_cpt_labels', $labels );
+
+		$labels = wp_parse_args( $cpt_labels, $labels );
 
 		$cpt_defaults = array(
 			'labels'              => $labels,
