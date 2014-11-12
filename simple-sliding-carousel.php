@@ -56,6 +56,8 @@ class SZ_Simple_Sliding_Carousel {
 			'all_items'          => _x( 'All Slides', 'simple-slider' ),
 		);
 
+		$labels = apply_filters( 'simple_slider_cpt_labels', $labels );
+
 		$cpt_defaults = array(
 			'labels'              => $labels,
 			'hierarchical'        => false,
@@ -76,7 +78,7 @@ class SZ_Simple_Sliding_Carousel {
 			'capability_type'     => 'post',
 		);
 
-		$cpt_args = apply_filters( 'simple_slider_cpt_args', $cpt_args = array() );
+		$cpt_args = apply_filters( 'simple_slider_cpt_args', $cpt_defaults );
 
 		$cpt_args = wp_parse_args( $cpt_args, $cpt_defaults );
 
