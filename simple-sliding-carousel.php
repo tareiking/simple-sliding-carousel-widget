@@ -102,7 +102,7 @@ class SZ_Simple_Sliding_Carousel {
 	 *
 	 * @param $args
 	 */
-	public function do_slider( $args = __return_empty_array ) {
+	public function do_slider( $args = array() ) {
 		$plugindir        = dirname( __FILE__ );
 		$templatefilename = 'slider-template.php';
 		if ( file_exists( TEMPLATEPATH . '/' . $templatefilename ) ) {
