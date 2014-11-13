@@ -223,13 +223,13 @@ class SZ_Simple_Sliding_Carousel {
 				$button_1_title = get_post_meta( $post_ID, 'button_1_title', true );
 				?>
 				<p>
-					<label for="button_1_link" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_link_label'] ); ?></label>
+					<label for="button_1_link"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_link_label'] ); ?></label>
 					<input type="text" id="button_1_link" name="button_1_link" value="<?php echo wptexturize( esc_html( $button_1_link ) ); ?>" size="25" />
 				</p>
 				<?php
 				// Button 1 Title ?>
 				<p>
-					<label for="button_1_title" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_label'] ); ?></label>
+					<label for="button_1_title"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_label'] ); ?></label>
 					<input type="text" id="button_1_title" name="button_1_title" value="<?php echo wptexturize( esc_html( $button_1_title ) ); ?>" size="25" />
 				</p>
 				<?php
@@ -242,13 +242,13 @@ class SZ_Simple_Sliding_Carousel {
 				$button_2_title = get_post_meta( $post_ID, 'button_2_title', true );
 				?>
 				<p>
-					<label for="button_2_link" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_link_label'] ); ?></label>
+					<label for="button_2_link"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_link_label'] ); ?></label>
 					<input type="text" id="button_2_link" name="button_2_link" value="<?php echo wptexturize( esc_html( $button_2_link ) ); ?>" size="25" />
 				</p>
 				<?php
 				// Button 2 Title ?>
 				<p>
-					<label for="button_2_title" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_label'] ); ?></label>
+					<label for="button_2_title"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_label'] ); ?></label>
 					<input type="text" id="button_2_title" name="button_2_title" value="<?php echo wptexturize( esc_html( $button_2_title ) ); ?>" size="25" />
 				</p>
 				<?php
