@@ -191,6 +191,18 @@ class SZ_Simple_Sliding_Carousel {
 	 */
 	public function cta_meta_box() {
 		global $post_ID;
+
+		$meta_label_defaults = array(
+			'button_1_label'           => 'Button 1 Title:',
+			'button_1_link_label'      => 'Button 1 Link:',
+			'button_2_label'           => 'Button 2 Title:',
+			'button_2_link_label'      => 'Button 2 Link:',
+		);
+
+		$meta_labels_args = apply_filters( 'simple_slider_meta_labels', $meta_label_defaults );
+
+		$meta_labels = wp_parse_args( $meta_labels_args, $meta_label_defaults );
+
 		$meta_defaults = array (
 			'box_1'           => true, 	// Boolean, true or false
 			'box_2'           => true, 	// Boolean, true or false
@@ -211,13 +223,13 @@ class SZ_Simple_Sliding_Carousel {
 				$button_1_title = get_post_meta( $post_ID, 'button_1_title', true );
 				?>
 				<p>
-					<label for="button_1_link" style="width:80px; display:inline-block;"><?php _e( "Button 1 Link:" ); ?></label>
+					<label for="button_1_link" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_link_label'] ); ?></label>
 					<input type="text" id="button_1_link" name="button_1_link" value="<?php echo wptexturize( esc_html( $button_1_link ) ); ?>" size="25" />
 				</p>
 				<?php
 				// Button 1 Title ?>
 				<p>
-					<label for="button_1_title" style="width:80px; display:inline-block;"><?php _e( "Button 1 Title:" ); ?></label>
+					<label for="button_1_title" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_1_label'] ); ?></label>
 					<input type="text" id="button_1_title" name="button_1_title" value="<?php echo wptexturize( esc_html( $button_1_title ) ); ?>" size="25" />
 				</p>
 				<?php
@@ -230,13 +242,13 @@ class SZ_Simple_Sliding_Carousel {
 				$button_2_title = get_post_meta( $post_ID, 'button_2_title', true );
 				?>
 				<p>
-					<label for="button_2_link" style="width:80px; display:inline-block;"><?php _e( "Button 2 Link:" ); ?></label>
+					<label for="button_2_link" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_link_label'] ); ?></label>
 					<input type="text" id="button_2_link" name="button_2_link" value="<?php echo wptexturize( esc_html( $button_2_link ) ); ?>" size="25" />
 				</p>
 				<?php
 				// Button 2 Title ?>
 				<p>
-					<label for="button_2_title" style="width:80px; display:inline-block;"><?php _e( "Button 2 Title:" ); ?></label>
+					<label for="button_2_title" style="width:80px; display:inline-block;"><?php printf( __( '%s', 'simple-slider' ), $meta_labels['button_2_label'] ); ?></label>
 					<input type="text" id="button_2_title" name="button_2_title" value="<?php echo wptexturize( esc_html( $button_2_title ) ); ?>" size="25" />
 				</p>
 				<?php
